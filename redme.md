@@ -173,3 +173,36 @@ Une fois l'application démarrée, la documentation interactive est disponible �
 - **OpenAPI JSON**: http://localhost:8080/api-docs
 
 ## Support
+
+
+
+🧱 Ordre recommandé de création des éléments
+Entities (Product, CartItem)
+Ce sont les classes fondamentales, liées à la base de données.
+
+DTOs (AddToCartRequest, CartResponse)
+Crées les objets de transfert de données pour bien structurer les requêtes/réponses.
+
+Repositories (ProductRepository, CartItemRepository)
+Une fois les entités prêtes, tu peux générer les interfaces JPA.
+
+Services (ProductService, CartService)
+Ici, tu écris toute la logique métier :
+
+Récupérer un produit, l’ajouter au panier, vérifier le stock, etc.
+
+Controllers (ProductController, CartController)
+Une fois la logique métier prête, expose les routes REST API qui utilisent les services.
+
+Exception (GlobalExceptionHandler)
+Pour gérer les erreurs proprement et uniformiser les réponses en cas de fail.
+
+Config (OpenApiConfig)
+Optionnel : ajouter Swagger une fois l’API fonctionnelle.
+
+Main app (PanierApplication)
+Elle reste là dès le début, mais on la touche en dernier si nécessaire.
+
+
+
+Pour toute question ou problème, consultez la documentation Swagger ou créez une issue dans le repository du projet.
